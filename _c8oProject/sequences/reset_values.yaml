@@ -1,0 +1,4 @@
+comment: Removes values from Session.
+↓Remove_from_session [steps.SessionRemoveStep-1677778336391]: 
+  key: values
+  output: true

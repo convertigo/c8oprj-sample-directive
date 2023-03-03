@@ -1,0 +1,84 @@
+comment: Generates a random value, says if it is even or not and saves values in Session.
+↓Get_object_from_session [steps.SessionGetObjectStep-1677777078987]: 
+  key: values
+  output: false
+↓jSimpleSource [steps.SimpleSourceStep-1677777434068]: 
+  sourceDefinition: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.common.XMLVector
+      - com.twinsoft.convertigo.beans.common.XMLVector: 
+        - java.lang.String: 
+          - ↑value: 1677777078987
+        - java.lang.String: 
+          - ↑value: ./text()
+  variableName: jValues
+↓random_values [steps.SimpleStep-1677775750034]: 
+  expression: |
+    'var rnd = Math.floor(Math.random() * (max*1 - min*1) ) + min*1;
+    var rnd_type = rnd%2 == 0 ? true : false;
+    var arrValues = [];
+    log.debug(">>>>jValues1:"+ jValues);
+    if(jValues == null){
+    	arrValues.push(''''+rnd);
+    	log.debug(">>>>arrValues1:"+ arrValues);
+    }else{
+    	jValues = JSON.parse(jValues);
+    	jValues.push(''''+rnd);
+    	log.debug(">>>>jValues2:"+ jValues);
+    	arrValues = arrValues.concat(jValues);
+    	log.debug(">>>>arrValues2:"+ arrValues);
+    }'
+↓Object [steps.JsonObjectStep-1677775879631]: 
+  ↓value [steps.JsonFieldStep-1677775901267]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: value
+    type: number
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: JS
+          - →→: rnd
+  ↓type [steps.JsonFieldStep-1677775924425]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: is_even
+    type: bool
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: JS
+          - →→: rnd_type
+  ↓value1 [steps.JsonFieldStep-1677777630343]: 
+    key: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: PLAIN
+          - →→: values
+    value: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+        - SmartType: 
+          - ↑mode: JS
+          - →→: arrValues
+↓Set_object_in_session [steps.SessionSetObjectStep-1677777988513]: 
+  key: values
+  value: 
+    - xmlizable: 
+      - ↑classname: com.twinsoft.convertigo.beans.steps.SmartType
+      - SmartType: 
+        - ↑mode: JS
+        - →→: arrValues
+↓min [variables.RequestableVariable-1677775785551]: 
+  value: 0
+↓max [variables.RequestableVariable-1677775791799]: 
+  value: 100

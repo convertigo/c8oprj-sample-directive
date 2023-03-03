@@ -1,13 +1,21 @@
 ↑convertigo: 8.1.0.m006
-↓switch [core.Project]: 
-  comment: Convertigo NGX builder Project
+↓directive [core.Project]: 
+  comment: How to use Directive
   corsOrigin: =Origin
+  version: 1.0
   ↓void [connectors.SqlConnector]: 🗏 connectors/void.yaml
+  ↓reset_values [sequences.GenericSequence]: 🗏 sequences/reset_values.yaml
+  ↓roll_dice [sequences.GenericSequence]: 🗏 sequences/roll_dice.yaml
   ↓Project_reference [references.ProjectSchemaReference]: 
     comment: ngx builder template
     projectName: mobilebuilder_tpl_8_1_0_ngx=https://github.com/convertigo/c8oprj-mobilebuilder-tpl/archive/mobilebuilder_tpl_8_1_0_ngx.zip
   ↓Application [core.MobileApplication]: 
-    comment: Describes the mobile application global properties
+    comment: |
+      <ul>
+      <li>IF, SWITCH and FOREACH usage of the Directive component.</li>
+      </ul>
+      <br/>
+      <img src="doc/c8oprj-sample-directive.png" />
     splashRemoveMode: beforeUpdate
     ↓Android [mobileplatforms.Android]: 
       comment: Android platform

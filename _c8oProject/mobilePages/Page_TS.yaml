@@ -1,0 +1,235 @@
+↑isRoot: true
+comment: Directive usage where data come from a CustomAction (TS).
+preloadPriority: high
+scriptContent: 
+  - xmlizable: 
+    - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+    - com.twinsoft.convertigo.beans.common.FormatedContent: 
+      →: |
+        /*Begin_c8o_PageImport*/
+        /*End_c8o_PageImport*/
+        /*Begin_c8o_PageDeclaration*/
+        	/*End_c8o_PageDeclaration*/
+        /*Begin_c8o_PageConstructor*/
+        		/*End_c8o_PageConstructor*/
+        /*Begin_c8o_PageFunction*/
+        	/*End_c8o_PageFunction*/
+        
+segment: path-to-xfirst
+title: Directive from TS
+↓Header [ngx.components.UIDynamicElement-1491634212350]: 
+  beanData: '{"ionBean":"Header"}'
+  comment: Page header
+  tagName: ion-header
+  ↓ToolBar [ngx.components.UIDynamicElement-1491634231108]: 
+    beanData: '{"ionBean":"ToolBar"}'
+    tagName: ion-toolbar
+    ↓ButtonSet1 [ngx.components.UIDynamicElement-1588171103814]: 
+      beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:start"}'
+      tagName: ion-buttons
+      ↓BackButton [ngx.components.UIDynamicElement-1643993281257]: 
+        beanData: '{"ionBean":"BackButton"}'
+        tagName: ion-back-button
+      ↓MenuButton [ngx.components.UIDynamicElement-1588172846908]: 
+        beanData: '{"ionBean":"MenuButton"}'
+        tagName: ion-menu-button
+    ↓BarTitle [ngx.components.UIDynamicElement-1491634265317]: 
+      beanData: '{"ionBean":"BarTitle"}'
+      tagName: ion-title
+      ↓Text [ngx.components.UIText-1491634275121]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: plain:Directive (TS)
+    ↓ButtonSet2 [ngx.components.UIDynamicElement-1588170811054]: 
+      beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:end"}'
+      tagName: ion-buttons
+      ↓Button [ngx.components.UIDynamicElement-1588170817806]: 
+        beanData: '{"ionBean":"Button"}'
+        tagName: ion-button
+        ↓Icon [ngx.components.UIDynamicElement-1588170831166]: 
+          beanData: |
+            '{
+             "ionBean": "Icon",
+             "IconName": "plain:ellipsis-vertical",
+             "IconMdName": "plain",
+             "IconIosName": "plain"
+            }'
+          tagName: ion-icon
+↓Content [ngx.components.UIDynamicElement-1489674805352]: 
+  beanData: '{"ionBean":"Content"}'
+  comment: Page content
+  tagName: ion-content
+  ↓Button_roll [ngx.components.UIDynamicElement-1677747760241]: 
+    beanData: '{"ionBean":"Button"}'
+    tagName: ion-button
+    ↓Label [ngx.components.UIDynamicElement-1677747760243]: 
+      beanData: '{"ionBean":"Label"}'
+      tagName: ion-label
+      ↓Text [ngx.components.UIText-1677747760245]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: plain:roll the dice
+    ↓Event [ngx.components.UIControlEvent-1677747760247]: 
+      ↓roll [ngx.components.UICustomAction-1677747920740]: 
+        actionValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+            - com.twinsoft.convertigo.beans.common.FormatedContent: 
+              →: |
+                '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                		page.global.dice_value = Math.floor(Math.random() * (vars.max - vars.min) ) + vars.min;
+                		page.global.dice_value_type = page.global.dice_value % 2 == 0;
+                		if(page.global.dice_values_array === undefined){
+                			page.global.dice_values_array = [];
+                		}
+                		page.global.dice_values_array.push(page.global.dice_value);
+                		console.log(page.global.dice_values_array);
+                		resolve();
+                '
+        ↓min [ngx.components.UIControlVariable-1677748028515]: 
+          varValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: script:0
+        ↓max [ngx.components.UIControlVariable-1677748035726]: 
+          varValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: script:100
+  ↓Button_reset [ngx.components.UIDynamicElement-1677749278291]: 
+    beanData: '{"ionBean":"Button"}'
+    tagName: ion-button
+    ↓Label [ngx.components.UIDynamicElement-1677749278294]: 
+      beanData: '{"ionBean":"Label"}'
+      tagName: ion-label
+      ↓Text [ngx.components.UIText-1677749278297]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: plain:reset
+    ↓Event [ngx.components.UIControlEvent-1677749278300]: 
+      ↓reset [ngx.components.UICustomAction-1677749278303]: 
+        actionValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.common.FormatedContent
+            - com.twinsoft.convertigo.beans.common.FormatedContent: 
+              →: |
+                '		page.c8o.log.debug(''[MB] ''+ props.actionFunction +'': ''+ props.actionName);
+                		this.global.dice_value = undefined;
+                		this.global.dice_value_type = undefined;
+                		this.global.dice_values_array = undefined;
+                		resolve();
+                '
+  ↓Directive [ngx.components.UIControlDirective-1677748148136]: 
+    directiveName: If
+    directiveSource: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+        - MobileSmartSourceType: script:this.global.dice_value !== undefined
+    ↓Div [ngx.components.UIDynamicElement-1677748201652]: 
+      beanData: '{"ionBean":"DivTag"}'
+      tagName: div
+      ↓Text [ngx.components.UIText-1677748210893]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: 'plain:Dice value is : '
+      ↓Text1 [ngx.components.UIText-1677748639727]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: script:this.global.dice_value
+  ↓Directive1 [ngx.components.UIControlDirective-1677748704416]: 
+    directiveName: Switch
+    directiveSource: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+        - MobileSmartSourceType: script:this.global.dice_value_type
+    ↓Div [ngx.components.UIDynamicElement-1677748760247]: 
+      beanData: '{"ionBean":"DivTag"}'
+      tagName: div
+      ↓Text [ngx.components.UIText-1677748782467]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: 'plain:Score type is : '
+      ↓Directive [ngx.components.UIControlDirective-1677748807969]: 
+        directiveName: SwitchCase
+        directiveSource: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: script:true
+        ↓Text [ngx.components.UIText-1677748888412]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:EVEN
+      ↓Directive1 [ngx.components.UIControlDirective-1677748875690]: 
+        directiveName: SwitchCase
+        directiveSource: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: script:false
+        ↓Text [ngx.components.UIText-1677748891907]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:ODD
+      ↓Directive2 [ngx.components.UIControlDirective-1677748926660]: 
+        directiveName: SwitchDefault
+        ↓Text [ngx.components.UIText-1677748926663]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:UNKNOWN
+  ↓Directive2 [ngx.components.UIControlDirective-1677774980671]: 
+    directiveIndexName: dice_index
+    directiveItemName: dice_item
+    directiveSource: 
+      - xmlizable: 
+        - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+        - MobileSmartSourceType: script:this.global.dice_values_array
+    ↓Div [ngx.components.UIDynamicElement-1677775045909]: 
+      beanData: '{"ionBean":"DivTag"}'
+      tagName: div
+      ↓Text [ngx.components.UIText-1677775051699]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: script:'#'+dice_index
+      ↓Text1 [ngx.components.UIText-1677775239728]: 
+        textValue: 
+          - xmlizable: 
+            - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+            - MobileSmartSourceType: script:' ==> '+dice_item
+↓Footer [ngx.components.UIDynamicElement-1491634242460]: 
+  beanData: '{"ionBean":"Footer"}'
+  comment: Page footer
+  tagName: ion-footer
+  ↓ToolBar [ngx.components.UIDynamicElement-1491634317538]: 
+    beanData: '{"ionBean":"ToolBar"}'
+    tagName: ion-toolbar
+    ↓ButtonSet [ngx.components.UIDynamicElement-1588170246138]: 
+      beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:start"}'
+      tagName: ion-buttons
+      ↓Button1 [ngx.components.UIDynamicElement-1491634332730]: 
+        beanData: '{"ionBean":"Button"}'
+        tagName: ion-button
+        ↓Text [ngx.components.UIText-1491634340354]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:Action 1
+    ↓ButtonSet1 [ngx.components.UIDynamicElement-1588170269871]: 
+      beanData: '{"ionBean":"ButtonSet","SetPosition":"plain:end"}'
+      tagName: ion-buttons
+      ↓Button2 [ngx.components.UIDynamicElement-1491634376874]: 
+        beanData: '{"ionBean":"Button"}'
+        tagName: ion-button
+        ↓Text [ngx.components.UIText-1491634383107]: 
+          textValue: 
+            - xmlizable: 
+              - ↑classname: com.twinsoft.convertigo.beans.ngx.components.MobileSmartSourceType
+              - MobileSmartSourceType: plain:Action 2
